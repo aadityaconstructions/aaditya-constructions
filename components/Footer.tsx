@@ -18,9 +18,7 @@ export default function Footer() {
                 dream homes through fair and transparent contests.
               </p>
               <div className="space-y-2 text-sm text-gray-600">
-                <div>📍 123 Business District, Mumbai, Maharashtra 400001</div>
-                <div>📞 +91 98765 43210</div>
-                <div>✉️ info@adityabuildcons.com</div>
+                <div>✉️ ar.aadityasharma@gmail.com</div>
               </div>
             </div>
 
@@ -65,7 +63,7 @@ export default function Footer() {
 
           <div className="border-t border-gray-200 mt-12 pt-8 text-center">
             <p className="text-gray-600">
-              © 2024 Aditya Build Cons. All rights reserved. | Licensed Real
+              © 2023 Aditya Build Cons. All rights reserved. | Licensed Real
               Estate Company
             </p>
           </div>

@@ -322,7 +322,7 @@ export default function MultiStepForm({
                     Contest Entry
                   </div>
                   <div className="text-sm text-gray-600">
-                    Single entry to lucky draw
+                    Single entry to contest
                   </div>
                 </div>
                 <div className="text-2xl font-bold text-accent-violet">
@@ -388,7 +388,7 @@ export default function MultiStepForm({
                       Contest Entry Fee
                     </div>
                     <div className="text-sm text-gray-600">
-                      Single entry to lucky draw
+                      Single entry to contest
                     </div>
                   </div>
                   <div className="text-3xl font-bold text-accent-violet">

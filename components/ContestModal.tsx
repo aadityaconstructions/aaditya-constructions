@@ -93,7 +93,7 @@ export default function ContestModal({ isOpen, onClose }: ContestModalProps) {
         {/* Header */}
         <div className="gradient-bg p-6 text-white md:rounded-t-2xl">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold">Join Lucky Draw Contest</h2>
+            <h2 className="text-2xl font-bold">Join Contest</h2>
             <button
               onClick={onClose}
               className="p-2 hover:bg-white/20 rounded-full transition-colors"
@@ -265,7 +265,7 @@ export default function ContestModal({ isOpen, onClose }: ContestModalProps) {
               <div>
                 <div className="font-semibold text-gray-800">Contest Entry</div>
                 <div className="text-sm text-gray-600">
-                  Single entry to lucky draw
+                  Single entry to contest
                 </div>
               </div>
               <div className="text-2xl font-bold text-accent-violet">₹100</div>
