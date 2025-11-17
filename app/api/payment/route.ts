@@ -23,7 +23,7 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
-    const amount = 399;
+    const amount = 199;
 
     await connectDB();
 
