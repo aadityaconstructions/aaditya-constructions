@@ -10,7 +10,7 @@ const slides = [
   //   subtitle: "Modern living spaces designed for your comfort",
   // },
   {
-    image: "/hero2.jpeg",
+    image: "/slide.jpg",
     title: "Happy Families, Dream Homes",
     subtitle: "Join thousands who found their perfect home",
   },
