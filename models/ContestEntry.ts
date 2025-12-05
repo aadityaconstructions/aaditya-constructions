@@ -28,11 +28,13 @@ const contestEntrySchema = new mongoose.Schema<IContestEntry>(
       required: true,
       lowercase: true,
       trim: true,
+      unique: true,
     },
     phone: {
       type: String,
       required: true,
       trim: true,
+      unique: true,
     },
     gender: {
       type: String,

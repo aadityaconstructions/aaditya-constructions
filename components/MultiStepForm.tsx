@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, User, Phone, MapPin, CreditCard, FileText } from "lucide-react";
+import { X, User, Phone, MapPin, CreditCard } from "lucide-react";
+import TermsModal from "./TermsModal";
 
 interface MultiStepFormProps {
   isOpen: boolean;
@@ -16,6 +17,8 @@ export default function MultiStepForm({
 }: MultiStepFormProps) {
   const [step, setStep] = useState(initialStep);
   const [loading, setLoading] = useState(false);
+  const [termsAccepted, setTermsAccepted] = useState(false);
+  const [showTermsModal, setShowTermsModal] = useState(false);
 
   useEffect(() => {
     const handleBeforeUnload = () => {
@@ -70,6 +73,10 @@ export default function MultiStepForm({
 
   const handleContestSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!termsAccepted) {
+      alert("Please accept the terms and conditions to proceed");
+      return;
+    }
     setLoading(true);
     localStorage.setItem("contestFormData", JSON.stringify(formData));
     try {
@@ -96,6 +103,67 @@ export default function MultiStepForm({
     }
   };
 
+  const handleContinue = () => {
+    if (!formData.name) {
+      alert("Name is required");
+      return;
+    }
+    if (!formData.gender) {
+      alert("Gender is required");
+      return;
+    }
+    if (!formData.email) {
+      alert("Email is required");
+      return;
+    }
+    if (!formData.phone) {
+      alert("Phone is required");
+      return;
+    }
+    if (!formData.address) {
+      alert("Address is required");
+      return;
+    }
+    if (!formData.city) {
+      alert("City is required");
+      return;
+    }
+    if (!formData.state) {
+      alert("State is required");
+      return;
+    }
+    if (!formData.pincode) {
+      alert("Pincode is required");
+      return;
+    }
+
+    // Validate name (only letters and spaces)
+    if (!/^[a-zA-Z\s]+$/.test(formData.name)) {
+      alert("Name should contain only letters and spaces");
+      return;
+    }
+
+    // Validate email
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      alert("Please enter a valid email address");
+      return;
+    }
+
+    // Validate phone (10 digits)
+    if (!/^\d{10}$/.test(formData.phone)) {
+      alert("Phone number must be exactly 10 digits");
+      return;
+    }
+
+    // Validate pincode (6 digits)
+    if (!/^\d{6}$/.test(formData.pincode)) {
+      alert("Pincode must be exactly 6 digits");
+      return;
+    }
+
+    setStep(2);
+  };
+
   const handleEssaySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -106,21 +174,13 @@ export default function MultiStepForm({
 
     setLoading(true);
     const payload = {
-      name: formData.name,
       email: formData.email,
       phone: formData.phone,
-      gender: formData.gender,
-      address: formData.address,
-      city: formData.city,
-      state: formData.state,
-      pincode: formData.pincode,
-      essay: formData.essay,
-      transactionId: formData.transactionId,
+      text: formData.essay,
     };
-    console.log("Submitting contest entry:", payload);
 
     try {
-      const response = await fetch("/api/contest", {
+      const response = await fetch("/api/essay", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -341,86 +401,7 @@ export default function MultiStepForm({
             <button
               type="button"
               disabled={loading}
-              onClick={async () => {
-                if (!formData.name) {
-                  alert("Name is required");
-                  return;
-                }
-                if (!formData.gender) {
-                  alert("Gender is required");
-                  return;
-                }
-                if (!formData.email) {
-                  alert("Email is required");
-                  return;
-                }
-                if (!formData.phone) {
-                  alert("Phone is required");
-                  return;
-                }
-                if (!formData.address) {
-                  alert("Address is required");
-                  return;
-                }
-                if (!formData.city) {
-                  alert("City is required");
-                  return;
-                }
-                if (!formData.state) {
-                  alert("State is required");
-                  return;
-                }
-                if (!formData.pincode) {
-                  alert("Pincode is required");
-                  return;
-                }
-
-                // Validate name (only letters and spaces)
-                if (!/^[a-zA-Z\s]+$/.test(formData.name)) {
-                  alert("Name should contain only letters and spaces");
-                  return;
-                }
-
-                // Validate email
-                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-                  alert("Please enter a valid email address");
-                  return;
-                }
-
-                // Validate phone (10 digits)
-                if (!/^\d{10}$/.test(formData.phone)) {
-                  alert("Phone number must be exactly 10 digits");
-                  return;
-                }
-
-                // Validate pincode (6 digits)
-                if (!/^\d{6}$/.test(formData.pincode)) {
-                  alert("Pincode must be exactly 6 digits");
-                  return;
-                }
-
-                setLoading(true);
-                try {
-                  const response = await fetch("/api/contest/check", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                      email: formData.email,
-                      phone: formData.phone,
-                    }),
-                  });
-                  const result = await response.json();
-                  if (response.ok) {
-                    setStep(2);
-                  } else {
-                    alert(result.error || "Already registered");
-                  }
-                } catch (error) {
-                  alert("Network error");
-                } finally {
-                  setLoading(false);
-                }
-              }}
+              onClick={handleContinue}
               className="w-full gradient-bg text-white py-4 rounded-xl text-lg font-semibold hover:shadow-xl transition-all disabled:opacity-50"
             >
               {loading ? "Processing..." : "Continue"}
@@ -451,6 +432,26 @@ export default function MultiStepForm({
                   </div>
                 </div>
               </div>
+              <div className="flex items-start gap-3 mb-6">
+                <input
+                  type="checkbox"
+                  id="terms"
+                  checked={termsAccepted}
+                  onChange={(e) => setTermsAccepted(e.target.checked)}
+                  className="mt-1 w-4 h-4 text-accent-violet border-gray-300 rounded focus:ring-accent-violet"
+                />
+                <label htmlFor="terms" className="text-sm text-gray-700">
+                  I accept the{" "}
+                  <button
+                    type="button"
+                    onClick={() => setShowTermsModal(true)}
+                    className="text-accent-violet underline hover:text-accent-violet-dark font-semibold"
+                  >
+                    terms and conditions
+                  </button>{" "}
+                  .
+                </label>
+              </div>
               <div className="flex gap-4">
                 <button
                   type="button"
@@ -461,7 +462,7 @@ export default function MultiStepForm({
                 </button>
                 <button
                   onClick={handleContestSubmit}
-                  disabled={loading}
+                  disabled={loading || !termsAccepted}
                   className="w-2/3 gradient-bg text-white py-4 rounded-xl text-lg font-semibold hover:shadow-xl transition-all disabled:opacity-50"
                 >
                   {loading ? "Processing..." : "Pay Now"}
@@ -538,8 +539,10 @@ export default function MultiStepForm({
           <form onSubmit={handleEssaySubmit} className="p-6 space-y-6">
             <div>
               <h3 className="text-md font-semibold text-gray-800 mb-4 flex items-center">
-                Q. How would owning a home transform your life or the lives of
-                your community? Describe one concrete scenario?(In 200 words)
+                Q. Given that dangerously high air pollution (AQI above 200) in
+                major Indian cities is causing serious diseases, what are the
+                most crucial, practical steps we can take right now to lower the
+                AQI and protect nature and our health? (In 200 words)
               </h3>
               <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-4">
                 <p className="text-red-800 font-semibold text-sm">
@@ -581,6 +584,10 @@ export default function MultiStepForm({
           </form>
         )}
       </div>
+      <TermsModal
+        isOpen={showTermsModal}
+        onClose={() => setShowTermsModal(false)}
+      />
     </div>
   );
 }

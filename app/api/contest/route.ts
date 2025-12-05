@@ -14,27 +14,17 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json();
-    console.log("Received contest data:", body);
     const { name, email, phone, gender, address, city, state, pincode } = body;
 
     // Validate required fields
     if (!name) {
-      return NextResponse.json(
-        { error: "Name is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Name is required" }, { status: 400 });
     }
     if (!email) {
-      return NextResponse.json(
-        { error: "Email is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Email is required" }, { status: 400 });
     }
     if (!phone) {
-      return NextResponse.json(
-        { error: "Phone is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Phone is required" }, { status: 400 });
     }
     if (!gender) {
       return NextResponse.json(
@@ -49,16 +39,10 @@ export async function POST(request: Request) {
       );
     }
     if (!city) {
-      return NextResponse.json(
-        { error: "City is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "City is required" }, { status: 400 });
     }
     if (!state) {
-      return NextResponse.json(
-        { error: "State is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "State is required" }, { status: 400 });
     }
     if (!pincode) {
       return NextResponse.json(
@@ -109,15 +93,6 @@ export async function POST(request: Request) {
       return NextResponse.json(
         { error: "Transaction ID is required" },
         { status: 400 }
-      );
-    }
-
-    // Check if email already exists
-    const existingEntry = await ContestEntry.findOne({ email, phone });
-    if (existingEntry) {
-      return NextResponse.json(
-        { error: "Email or Phone already registered for contest" },
-        { status: 409 }
       );
     }
 

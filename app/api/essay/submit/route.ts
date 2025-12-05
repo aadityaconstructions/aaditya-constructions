@@ -25,10 +25,7 @@ export async function POST(request: Request) {
     const contest = await ContestEntry.findOne({ email, phone });
 
     if (!contest) {
-      return NextResponse.json(
-        { error: "No entry found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: "No entry found" }, { status: 404 });
     }
 
     if (contest.essay) {

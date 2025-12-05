@@ -304,6 +304,46 @@ export default function Terms() {
                 Sikar Road, Jaipur, valued at approximately ₹60,00,000.
               </p>
             </section>
+            <section className="space-y-2">
+              <p>
+                <span className="font-bold text-md">The Promoter:</span>
+                AadityaBuildCons (referred to hereafter as "ABC").
+              </p>
+              <p>
+                <span className="font-bold text-md">The Contest:</span>The
+                'Environmental Stewardship Challenge' (referred to hereafter as
+                "The Challenge").
+              </p>
+              <p>
+                <span className="font-bold text-md">The Cause:</span>The
+                imperative to identify, develop, and present highly original and
+                impactful solutions favoring the reduction of environmental
+                pollution and supporting ecological health, particularly
+                concerning urban air quality.
+              </p>
+              {/* <p>
+                imperative to identify, develop, and present highly original and
+                impactful solutions favoring the reduction of environmental
+                pollution and supporting ecological health, particularly
+                concerning urban air quality.
+                </p> */}
+              <p>
+                <span className="font-bold text-md">
+                  {" "}
+                  Contest Objective & Call to Action:
+                </span>
+                The The Challenge is launched by ABC to favor and support our
+                environment by sourcing innovative, actionable, and sustainable
+                strategies to combat critical environmental issues, such as
+                severe urban air pollution (e.g., high AQI). ABC issues this
+                mandate: "Stand for a cause and be a part of it." Entrants are
+                required to submit an original, data-driven, and practical
+                proposal addressing the core environmental objective. This is
+                not a random selection or lottery; selection will be based
+                strictly on the originality, feasibility, and measurable impact
+                of the proposed solution.
+              </p>
+            </section>
 
             <section>
               <h3 className="text-xl font-bold text-gray-800 mb-3">
@@ -326,6 +366,16 @@ export default function Terms() {
                 <p>
                   • Employees, partners, and immediate family members of Aaditya
                   Buildcons are not eligible to participate.
+                </p>
+                <p>
+                  • Submissions must be entirely original work. Plagiarism will
+                  result in immediate disqualification. The method, language,
+                  and format of the solution must be clear, concise, and
+                  analytically sound.
+                </p>
+                <p>
+                  • Submissions must directly address a defined environmental
+                  problem and propose a concrete intervention.
                 </p>
               </div>
             </section>
@@ -362,6 +412,19 @@ export default function Terms() {
                 <p>
                   • Registration, stamp duty, and any legally required charges,
                   if applicable, must be borne by the winner.
+                </p>
+                <p>
+                  • The winning submission, as determined by the Jury Panel,
+                  will secure the Grand Prize.
+                </p>
+                <p>
+                  • The Grand Prize is a significant, high-value opportunity
+                  that could lead you to your new home—a permanent
+                  establishment, operational base, or equivalent distinguished
+                  reward/property in the city of Jaipur, designed to facilitate
+                  the continuation and implementation of the winning solution.
+                  Further details regarding the nature of the "new home" shall
+                  be provided to the selected winner.
                 </p>
               </div>
             </section>
@@ -400,6 +463,23 @@ export default function Terms() {
               <p className="text-gray-700">
                 Aaditya Buildcons reserves the right to verify details submitted
                 by participants before confirming any prize.
+              </p>
+            </section>
+            <section>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                Judging & Review Process
+              </h3>
+              <p className="text-gray-700">
+                • All submitted entries will undergo a rigorous, non-random
+                evaluation process.
+              </p>
+              <p className="text-gray-700">
+                • The Jury Panel will review submissions based on the criteria
+                of Originality, Feasibility, Measurable Impact, and Scalability.
+              </p>
+              <p className="text-gray-700">
+                • The decision of the Jury Panel is final and binding in all
+                respects.
               </p>
             </section>
 

@@ -9,22 +9,13 @@ export async function POST(request: Request) {
     const { email, name, phone, gender, address, city, state, pincode } = body;
 
     if (!name) {
-      return NextResponse.json(
-        { error: "Name is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Name is required" }, { status: 400 });
     }
     if (!email) {
-      return NextResponse.json(
-        { error: "Email is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Email is required" }, { status: 400 });
     }
     if (!phone) {
-      return NextResponse.json(
-        { error: "Phone is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Phone is required" }, { status: 400 });
     }
     if (!gender) {
       return NextResponse.json(
@@ -39,16 +30,10 @@ export async function POST(request: Request) {
       );
     }
     if (!city) {
-      return NextResponse.json(
-        { error: "City is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "City is required" }, { status: 400 });
     }
     if (!state) {
-      return NextResponse.json(
-        { error: "State is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "State is required" }, { status: 400 });
     }
     if (!pincode) {
       return NextResponse.json(
@@ -92,14 +77,18 @@ export async function POST(request: Request) {
 
     await connectDB();
 
-    const isExistingContest = await ContestEntry.findOne({
-      email,
-      phone,
-    });
-
-    if (isExistingContest) {
+    const existingEmail = await ContestEntry.findOne({ email });
+    if (existingEmail) {
       return NextResponse.json(
-        { error: "You have already registered for the contest" },
+        { error: "Email already registered for the contest" },
+        { status: 400 }
+      );
+    }
+
+    const existingPhone = await ContestEntry.findOne({ phone });
+    if (existingPhone) {
+      return NextResponse.json(
+        { error: "Phone number already registered for the contest" },
         { status: 400 }
       );
     }

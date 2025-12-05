@@ -9,7 +9,9 @@ interface ContestContextType {
   closeModal: () => void;
 }
 
-export const ContestContext = createContext<ContestContextType | undefined>(undefined);
+export const ContestContext = createContext<ContestContextType | undefined>(
+  undefined
+);
 
 export function ContestProvider({ children }: { children: ReactNode }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,7 +28,9 @@ export function ContestProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <ContestContext.Provider value={{ isModalOpen, modalStep, openModal, closeModal }}>
+    <ContestContext.Provider
+      value={{ isModalOpen, modalStep, openModal, closeModal }}
+    >
       {children}
     </ContestContext.Provider>
   );
@@ -34,6 +38,7 @@ export function ContestProvider({ children }: { children: ReactNode }) {
 
 export function useContest() {
   const context = useContext(ContestContext);
-  if (!context) throw new Error("useContest must be used within ContestProvider");
+  if (!context)
+    throw new Error("useContest must be used within ContestProvider");
   return context;
 }
