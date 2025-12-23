@@ -351,7 +351,7 @@ export default function Terms() {
               </h3>
               <div className="text-gray-700 space-y-2">
                 <p>
-                  • The participation fee to enter this contest is ₹199 only.
+                  • The participation fee to enter this contest is ₹1111/- only.
                 </p>
                 <p>• This fee is non-refundable under any circumstances.</p>
               </div>
@@ -434,7 +434,7 @@ export default function Terms() {
                 No Additional Charges
               </h3>
               <p className="text-gray-700">
-                Apart from the participation fee of ₹199, no additional charges
+                Apart from the participation fee of ₹1111/-, no additional charges
                 will be demanded for entering, participating, or claiming the
                 rewards.
               </p>
@@ -447,7 +447,7 @@ export default function Terms() {
               <div className="text-gray-700 space-y-2">
                 <p>
                   • All winners, including the grand prize winner and the Top
-                  100 assured prize winners, will be announced on 25th December.
+                  100 assured prize winners, will be announced on the website only.
                 </p>
                 <p>
                   • Results will be declared through the official website and

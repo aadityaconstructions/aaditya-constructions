@@ -27,10 +27,10 @@ export default function NoticePage() {
                     Contest Result Announcement
                   </h2>
                   <p className="text-gray-700 text-lg">
-                    The results of the contest will be declared on{" "}
-                    <span className="font-bold text-accent-violet">
+                    The results of the contest will be declared soon
+                    {/* <span className="font-bold text-accent-violet">
                       25th December 2025
-                    </span>
+                    </span> */}
                   </p>
                 </div>
               </div>

@@ -73,7 +73,7 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
-    const amount = 199;
+    const amount = 1111;
 
     await connectDB();
 

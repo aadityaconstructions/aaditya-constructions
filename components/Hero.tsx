@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const slides = [
   // {
@@ -10,7 +11,7 @@ const slides = [
   //   subtitle: "Modern living spaces designed for your comfort",
   // },
   {
-    image: "/slide.jpg",
+    image: "/slide.png",
     title: "Happy Families, Dream Homes",
     subtitle: "Join thousands who found their perfect home",
   },
@@ -45,7 +46,9 @@ export default function Hero() {
             index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
           }`}
         >
-          <img
+          <Image
+          height={1000}
+          width={2000}
             src={slide.image}
             alt={slide.title}
             className="w-full h-full object-cover"

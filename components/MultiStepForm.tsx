@@ -393,7 +393,7 @@ export default function MultiStepForm({
                   </div>
                 </div>
                 <div className="text-2xl font-bold text-accent-violet">
-                  ₹199
+                 <span className="text-gray-700 line-through"> ₹5000</span> <span> ₹1111</span>
                 </div>
               </div>
             </div>
@@ -428,7 +428,7 @@ export default function MultiStepForm({
                     </div>
                   </div>
                   <div className="text-3xl font-bold text-accent-violet">
-                    ₹199
+                    ₹1111/-
                   </div>
                 </div>
               </div>

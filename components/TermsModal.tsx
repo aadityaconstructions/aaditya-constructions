@@ -73,7 +73,7 @@ export default function TermsModal({ isOpen, onClose }: TermsModalProps) {
               Participation Fee
             </h3>
             <div className="space-y-2">
-              <p>• The participation fee to enter this contest is ₹199 only.</p>
+              <p>• The participation fee to enter this contest is ₹1111/- only.</p>
               <p>• This fee is non-refundable under any circumstances.</p>
             </div>
           </section>
@@ -146,7 +146,7 @@ export default function TermsModal({ isOpen, onClose }: TermsModalProps) {
               No Additional Charges
             </h3>
             <p>
-              Apart from the participation fee of ₹199, no additional charges
+              Apart from the participation fee of ₹1111/-, no additional charges
               will be demanded for entering, participating, or claiming the
               rewards.
             </p>
@@ -159,7 +159,7 @@ export default function TermsModal({ isOpen, onClose }: TermsModalProps) {
             <div className="space-y-2">
               <p>
                 • All winners, including the grand prize winner and the Top 100
-                assured prize winners, will be announced on 25th December.
+                assured prize winners, will be announced on the website only.
               </p>
               <p>
                 • Results will be declared through the official website and
